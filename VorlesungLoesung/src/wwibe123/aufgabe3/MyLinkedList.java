@@ -87,4 +87,66 @@ public class MyLinkedList<T> {
 			}
 		}
 	}
+	
+	public void delete(int index) {
+		int i = 0;
+		if(index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		if(size / 2 > index) {
+			Node<T> n = first;
+			while(true) {
+				if(i == index) {
+					if(n.getPrev() != null) {
+						Node<T> nPrev = n.getPrev();
+						nPrev.setNext(n.getNext());
+					}
+					if(n.getNext() != null) {
+						n.getNext().setPrev(n.getPrev());
+					}
+					size--;
+					break;
+				}
+				i++;
+				n = n.getNext();
+			}
+		}else {
+			i = size - 1;
+			Node<T> n = last;
+			while(true) {
+				if(i == index) {
+					if(n.getPrev() != null) {
+						Node<T> nPrev = n.getPrev();
+						nPrev.setNext(n.getNext());
+					}
+					if(n.getNext() != null) {
+						n.getNext().setPrev(n.getPrev());
+					}
+					size--;
+					break;
+				}
+				i--;
+				n = n.getPrev();
+			}
+		}
+	}
+	
+	public void delete(T object) {
+		Node<T> n = first;
+		while(true) {
+			if(n.getData().equals(object)) {
+				if(n.getPrev() != null) {
+					Node<T> nPrev = n.getPrev();
+					nPrev.setNext(n.getNext());
+				}
+				if(n.getNext() != null) {
+					n.getNext().setPrev(n.getPrev());
+				}
+				size--;
+				break;
+			}
+			n = n.getNext();
+		}
+	}
 }

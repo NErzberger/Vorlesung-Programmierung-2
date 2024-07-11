@@ -1,5 +1,7 @@
 package wwibe223.aufgabe3;
 
+import java.util.NoSuchElementException;
+
 public class MyLinkedList<T> {
 
 	private int size;
@@ -49,5 +51,103 @@ public class MyLinkedList<T> {
 			size++;
 		}
 		return true;
+	}
+	
+	public T get(int index) {
+		int i = 0;
+		
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		if(size / 2 > index) {
+			Node<T> n = first;
+			
+			while(true) {
+				if (i==index) {
+					return n.getData();
+				}
+				n = n.getNext();
+				if (n == null) {
+					throw new NoSuchElementException();
+				}
+				i++;
+			}
+		}else {
+			i = size -1;
+			Node<T> n = last;
+			while(true) {
+				if(i == index) {
+					return n.getData();
+				}
+				n = n.getPrev();
+				if (n == null) {
+					throw new NoSuchElementException();
+				}
+				i--;
+			}
+		}
+	}
+	
+	public void delete(int index) {
+		int i = 0;
+		
+		if(index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		if(size / 2 > index) {
+			Node<T> n = first;
+			while(true) {
+				if(i == index) {
+					if(n.getPrev() != null) {
+						Node<T> prev = n.getPrev();
+						prev.setNext(n.getNext());
+					}
+					if(n.getNext() != null) {
+						n.getNext().setPrev(n.getPrev());
+					}
+					size--;
+					break;
+				}
+				i++;
+				n = n.getNext();
+			}
+		}else {
+			i = size - 1;
+			Node<T> n = last;
+			while(true) {
+				if(i == index) {
+					if(n.getPrev() != null) {
+						Node<T> prev = n.getPrev();
+						prev.setNext(n.getNext());
+					}
+					if(n.getNext() != null) {
+						n.getNext().setPrev(n.getPrev());
+					}
+					size--;
+					break;
+				}
+				i--;
+				n = n.getPrev();
+			}
+		}
+	}
+	
+	public void delete(T object) {
+		Node<T> n = first;
+		for (int i = 0; i < this.size; i++){
+			if(n.getData().equals(object)) {
+				if(n.getPrev() != null) {
+					Node<T> prev = n.getPrev();
+					prev.setNext(n.getNext());
+				}
+				if(n.getNext() != null) {
+					n.getNext().setPrev(n.getPrev());
+				}
+				size--;
+				break;
+			}
+			n = n.getNext();
+		}
 	}
 }
