@@ -1,8 +1,10 @@
 package wwibe123.aufgabe4;
 
+import java.util.AbstractList;
 import java.util.Arrays;
+import java.util.List;
 
-public class MyArrayList<E> {
+public class MyArrayList<E> extends AbstractList<E> implements List<E>{
 
 	private static final int DEFAULT_CAPACITY = 10;
 	
@@ -64,17 +66,22 @@ public class MyArrayList<E> {
 		return true;
 	}
 	
-	public void remove(int index) {
+	public E remove(int index) {
+		E e = (E) dataElements[index];
 		fastRemove(dataElements, index);
+		return e;
 	}
 	
-	public void remove(Object o) {
+	public boolean remove(Object o) {
+		
 		for(int i = 0; i < size; i++) {
+			
 			if (dataElements[i].equals(o)) {
 				fastRemove(dataElements, i);
 				break;
 			}
 		}
+		return true;
 	}
 	
 	
