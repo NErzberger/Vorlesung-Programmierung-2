@@ -2,6 +2,7 @@ package wwibe223.aufgabe4;
 
 import java.util.AbstractList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MyArrayList<T> extends AbstractList<T> implements List<T>{
@@ -91,5 +92,17 @@ public class MyArrayList<T> extends AbstractList<T> implements List<T>{
 		es[size = newSize] = null;
 	}
 	
-	
+	public void sort(Comparator<? super T> c) {
+		T tmp = null;
+		for(int i = 0; i < size; i++) {
+			tmp = (T) dataElements[i];
+			int j = i;
+			
+			while(j > 0 && c.compare((T) dataElements[j - 1], tmp)> 0) {
+				dataElements[j] = dataElements[j - 1];
+				j--;
+			}
+			dataElements[j] = tmp;
+		}
+	}
 }

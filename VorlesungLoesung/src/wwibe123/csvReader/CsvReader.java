@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import wwibe123.aufgabe4.MyArrayList;
+
 public class CsvReader {
 
 	private File csvFile;
@@ -17,13 +19,13 @@ public class CsvReader {
 	private List<Waehrung> waehrungList;
 	
 	public CsvReader(String path) {
-		this.waehrungList = new ArrayList<Waehrung>();
+		this.waehrungList = new MyArrayList<Waehrung>();
 		this.csvFile = new File(path);
 		this.splitter = "";
 	}
 	
 	public CsvReader() {
-		this.waehrungList = new ArrayList<Waehrung>();
+		this.waehrungList = new MyArrayList<Waehrung>();
 		this.csvFile = new File("waehrung.csv");
 		this.splitter = "\\|";
 	}
@@ -33,7 +35,7 @@ public class CsvReader {
 		BufferedReader inputReader = null;
 		
 		if(waehrungList == null) {
-			waehrungList = new ArrayList<Waehrung>();
+			waehrungList = new MyArrayList<Waehrung>();
 		}
 		
 		try {

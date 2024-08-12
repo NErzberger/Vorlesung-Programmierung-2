@@ -1,6 +1,8 @@
 package wwibe123.aufgabe4;
 
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 import wwibe123.csvReader.CsvReader;
 import wwibe123.csvReader.Waehrung;
@@ -14,6 +16,16 @@ public class Arraytest {
 		arrayList.add("String 3");
 		arrayList.add("String 4");
 		arrayList.add("String 5");
+		
+		List<Waehrung> waehrungsArray = new MyArrayList<Waehrung>();
+		
+		arrayList.sort(new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			}
+		});
 		
 		System.out.println("Size: " + arrayList.size());
 		

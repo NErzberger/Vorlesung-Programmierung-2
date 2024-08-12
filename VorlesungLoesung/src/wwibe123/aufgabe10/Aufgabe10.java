@@ -1,5 +1,6 @@
 package wwibe123.aufgabe10;
 
+import java.util.Comparator;
 import java.util.List;
 
 import wwibe123.csvReader.CsvReader;
@@ -12,6 +13,14 @@ public class Aufgabe10 {
 		reader.readFile();
 		List<Waehrung> myList = reader.getWaehrungList();
 		Waehrung[] unsorted = new Waehrung[myList.size()];
+		
+		myList.sort(new Comparator<Waehrung>() {
+
+			@Override
+			public int compare(Waehrung o1, Waehrung o2) {
+				return o1.getKuerzel().compareTo(o2.getKuerzel());
+			}
+		});
 		
 		for(int i = 0; i< myList.size(); i++) {
 			unsorted[i] = myList.get(i);
