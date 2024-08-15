@@ -1,9 +1,13 @@
 package wwibe223.aufgabe12;
 
+import java.util.LinkedList;
+
 public class Aufgabe12 {
 
 	public static void main(String[] args) {
-		int[] array = {3, 1, 8, 4, 2, 6, 7, 5};
+		int[] array = {13, 6, 5, 8, 1, 7};
+		
+		LinkedList<String> list = new LinkedList<String>();
 		
 		mergeSort(array, 0, array.length-1);
 		

@@ -1,5 +1,7 @@
 package wwibe223.aufgabe13;
 
+import java.util.ArrayList;
+
 public class Aufgabe13 {
 
 	public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class Aufgabe13 {
 	
 	public static void quicksort(int[] arr, int linkeGrenze, int rechteGrenze) {
 		if (linkeGrenze < rechteGrenze) {
+			ArrayList<String> a = new ArrayList<String>();
 			int q = partition(arr, linkeGrenze, rechteGrenze);
 			quicksort(arr, linkeGrenze, q);
 			quicksort(arr, q+1, rechteGrenze);

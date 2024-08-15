@@ -89,7 +89,7 @@ public class MyArrayList<E> extends AbstractList<E> implements List<E>{
 	private void fastRemove(Object[] es, int i) {
 		int newSize;
 		if((newSize=size-1)>i) {
-			System.arraycopy(es, i + 1, es, i, newSize - 1);
+			System.arraycopy(es, i + 1, es, i, newSize - i);
 		}
 		es[size = newSize] = null;
 	}
