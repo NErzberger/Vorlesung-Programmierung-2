@@ -101,9 +101,13 @@ public class MyLinkedList<T> {
 					if(n.getPrev() != null) {
 						Node<T> nPrev = n.getPrev();
 						nPrev.setNext(n.getNext());
+					} else {
+						first = n.getNext();
 					}
 					if(n.getNext() != null) {
 						n.getNext().setPrev(n.getPrev());
+					} else {
+						last = n.getPrev();
 					}
 					size--;
 					break;
@@ -119,9 +123,13 @@ public class MyLinkedList<T> {
 					if(n.getPrev() != null) {
 						Node<T> nPrev = n.getPrev();
 						nPrev.setNext(n.getNext());
+					} else {
+						first = n.getNext();
 					}
 					if(n.getNext() != null) {
 						n.getNext().setPrev(n.getPrev());
+					} else {
+						last = n.getPrev();
 					}
 					size--;
 					break;
@@ -139,9 +147,13 @@ public class MyLinkedList<T> {
 				if(n.getPrev() != null) {
 					Node<T> nPrev = n.getPrev();
 					nPrev.setNext(n.getNext());
+				} else {
+					first = n.getNext();
 				}
 				if(n.getNext() != null) {
 					n.getNext().setPrev(n.getPrev());
+				} else {
+					last = n.getPrev();
 				}
 				size--;
 				break;
