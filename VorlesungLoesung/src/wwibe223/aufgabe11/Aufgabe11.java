@@ -26,15 +26,16 @@ public class Aufgabe11 {
 	}
 	
 	public static Waehrung[] selectionSort(Waehrung[] unsorted) {
-		Waehrung temp = null;
 		for(int i = 0; i < unsorted.length - 1; i++) {
+			int minIndex = i;
 			for(int j = i + 1; j < unsorted.length; j++) {
-				if(unsorted[i].getKuerzel().compareTo(unsorted[j].getKuerzel()) < 0) {
-					temp = unsorted[i];
-					unsorted[i] = unsorted[j];
-					unsorted[j] = temp;
+				if(unsorted[j].getKuerzel().compareTo(unsorted[minIndex].getKuerzel()) < 0) {
+					minIndex = j;
 				}
 			}
+			Waehrung tmp = unsorted[minIndex];
+			unsorted[minIndex] = unsorted[i];
+			unsorted[i] = tmp;
 		}
 		return unsorted;
 	}
