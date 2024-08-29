@@ -13,6 +13,7 @@ public class Aufgabe16 {
 		int rechteGrenze = searchBase.length - 1;
 		int linkeGrenze = 0;
 		while(linkeGrenze < rechteGrenze) {
+			if (searchBase[rechteGrenze] == searchBase[linkeGrenze]) return searchBase[linkeGrenze] == searchValue ? linkeGrenze : -1;
 			pivotPos = linkeGrenze + (searchValue - searchBase[linkeGrenze]) /
 					(searchBase[rechteGrenze] - searchBase[linkeGrenze]) * 
 					(rechteGrenze - linkeGrenze);
