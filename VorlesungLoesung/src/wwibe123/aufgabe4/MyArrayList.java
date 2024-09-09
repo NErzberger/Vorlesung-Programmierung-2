@@ -79,10 +79,10 @@ public class MyArrayList<E> extends AbstractList<E> implements List<E>{
 			
 			if (dataElements[i].equals(o)) {
 				fastRemove(dataElements, i);
-				break;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	
