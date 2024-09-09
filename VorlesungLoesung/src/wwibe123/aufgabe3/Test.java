@@ -8,9 +8,14 @@ public class Test {
 		ArrayList<Integer> test = new ArrayList<Integer>();
 		
 		MyLinkedList<String> list = new MyLinkedList<String>();
+		String myString = "Mein String";
+		list.add(myString);
 		list.add("Wert 1");
 		list.add("Wert 2");
 		list.add("Wert 3");
+		
+		
+		
 		
 		System.out.println(list.get(1));
 		
@@ -19,6 +24,8 @@ public class Test {
 		list.delete(2);
 		
 		System.out.println("Size: " + list.size());
+		
+		list.delete(myString);
 	}
 
 }

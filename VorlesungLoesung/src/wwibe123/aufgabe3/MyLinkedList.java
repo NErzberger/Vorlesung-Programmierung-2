@@ -141,6 +141,10 @@ public class MyLinkedList<T> {
 	}
 	
 	public void delete(T object) {
+		if (first == null) {
+			throw new NullPointerException("Empty list");
+		}
+		
 		Node<T> n = first;
 		while(true) {
 			if(n.getData().equals(object)) {
