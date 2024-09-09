@@ -76,8 +76,7 @@ public class MyArrayList<E> extends AbstractList<E> implements List<E>{
 	public boolean remove(Object o) {
 		
 		for(int i = 0; i < size; i++) {
-			
-			if (dataElements[i].equals(o)) {
+			if ((o == null && dataElements[i] == null ) || dataElements[i].equals(o)) {
 				fastRemove(dataElements, i);
 				return true;
 			}
