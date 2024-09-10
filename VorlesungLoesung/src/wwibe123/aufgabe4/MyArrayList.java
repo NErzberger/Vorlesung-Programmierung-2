@@ -74,15 +74,20 @@ public class MyArrayList<E> extends AbstractList<E> implements List<E>{
 	}
 	
 	public boolean remove(Object o) {
-		
-		for(int i = 0; i < size; i++) {
-			
-			if (dataElements[i].equals(o)) {
-				fastRemove(dataElements, i);
-				break;
-			}
-		}
-		return true;
+	    if (o == null) {
+	        for (int index = 0; index < size; index++)
+	            if (elementData[index] == null) {
+	                fastRemove(index);
+	                return true;
+	            }
+	    } else {
+	        for (int index = 0; index < size; index++)
+	            if (o.equals(elementData[index])) {
+	                fastRemove(index);
+	                return true;
+	            }
+	    }
+	    return false;
 	}
 	
 	
